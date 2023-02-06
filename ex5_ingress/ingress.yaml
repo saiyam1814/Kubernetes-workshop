@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: kubeissuer
+    kubernetes.io/ingress.class: nginx
+  name: kubeworkshop-ingress
+  namespace: demo
+spec:
+  rules:
+  - host: demo.a29874f5-4ef6-4c0e-bcf4-8aa80083fb4f.lb.civo.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: kubeworkshop
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - demo.a29874f5-4ef6-4c0e-bcf4-8aa80083fb4f.lb.civo.com
+    secretName: demo

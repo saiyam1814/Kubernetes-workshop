@@ -1,0 +1,8 @@
+kubectl get nodes
+kubectl run nginx --image=nginx
+kubectl get pods
+kubectl get pods -owide
+curl podIP
+kubectl expose pod nginx --type=NodePort --port 80
+kubectl get svc
+

@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kubecert
+  namespace: demo
+spec:
+  secretName: demo
+  issuerRef:
+    name: kubeissuer
+    kind: ClusterIssuer
+  commonName: demo.a29874f5-4ef6-4c0e-bcf4-8aa80083fb4f.lb.civo.com
+  dnsNames:
+  - demo.a29874f5-4ef6-4c0e-bcf4-8aa80083fb4f.lb.civo.com
